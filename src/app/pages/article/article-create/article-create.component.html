@@ -1,0 +1,158 @@
+<tc-card>
+  <form [formGroup]="form" (ngSubmit)="onSubmitAddArticleForm()">
+
+    <div class="row">
+      <div class="col col-12 col-md-4">
+        <mat-form-field>
+          <input matInput placeholder="Titre" [formControl]="form.controls['Titre']">
+          <mat-error *ngIf="form.controls['Titre'].hasError('required') && form.controls['Titre'].touched">
+            Le Titre est requis.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col col-12 col-md-4">
+        <mat-form-field>
+          <input matInput type="number" placeholder="Prix initiale unitaire" [formControl]="form.controls['PrixInitialeUnitaire']">
+          <mat-error *ngIf="form.controls['PrixInitialeUnitaire'].hasError('required') && form.controls['PrixInitialeUnitaire'].touched">
+            Le Prix initiale unitaire est requis.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col col-12 col-md-4">
+        <mat-form-field>
+          <input matInput placeholder="Prix unitaire texte" [formControl]="form.controls['PrixInitialeUnitaireTexteLibre']">
+          <mat-error *ngIf="form.controls['PrixInitialeUnitaireTexteLibre'].hasError('required') && form.controls['PrixInitialeUnitaireTexteLibre'].touched">
+            Le Prix initiale unitaire est requis.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col col-12 col-md-4">
+        <mat-form-field>
+          <input matInput type="number" placeholder="Quantité initiale" [formControl]="form.controls['QuantiteInitiale']">
+          <mat-error *ngIf="form.controls['QuantiteInitiale'].hasError('required') && form.controls['QuantiteInitiale'].touched">
+            Le Quantité initiale est requis.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col col-12 col-md-4">
+        <mat-form-field>
+          <input matInput type="number" placeholder="Quantité en stock" [formControl]="form.controls['QuantiteEnStock']">
+          <mat-error *ngIf="form.controls['QuantiteEnStock'].hasError('required') && form.controls['QuantiteEnStock'].touched">
+            Le Quantité en stock est requis.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col col-12 col-md-4">
+        <mat-form-field>
+          <input matInput placeholder="Catégorie" [formControl]="form.controls['Categorie']">
+        </mat-form-field>
+      </div>
+
+      <div class="col col-12 col-md-4">
+        <mat-form-field>
+          <input matInput placeholder="Marque" [formControl]="form.controls['Marque']">
+        </mat-form-field>
+      </div>
+
+      <div class="col col-12 col-md-4">
+        <mat-form-field>
+          <textarea matInput placeholder="Description" [formControl]="form.controls['Description']" rows="5"></textarea>
+          <mat-error *ngIf="form.controls['Description'].hasError('required') && form.controls['Description'].touched">
+            La Description est requis.
+          </mat-error>
+        </mat-form-field>
+      </div>
+      
+    </div>
+
+    <!-- Photos -->
+    <div class="row div-photo-center">
+
+      <div class="col col-12 col-md-3" style="margin-top:5px;">
+        <div class="avatar-upload d-flex justify-content-center" style="width: 100% !important; max-width: 100% !important;">
+          <div class="avatar-preview-fourn">
+            <div id="imagePreview"
+                 [style.background-image]="backgroundImagePhoto_1"
+                 [style.background-size]="backgroundImageSize_1">
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 10px;">
+          <input #imageUpload_1
+                 id="imageUpload_1"
+                 name="image"
+                 type="file"
+                 accept=".png, .jpg, .jpeg"
+                 (change)="fileChangeImage_1($event)"
+                 style="display:none" />
+          <label for="imageUpload_1"></label>
+          <button tc-button (click)="imageUpload_1.click()" type="button" [afterIcon]="'sli-pencil'" [view]="'accent'" [square]="true" [outline]="true" [tcShape]="'50%'"></button>
+          <button tc-button (click)="removePhoto_1()" type="button" [afterIcon]="'sli-trash'" [view]="'error'" [square]="true" [tcShape]="'50%'" style="margin-left: 20px;"></button>
+        </div>
+      </div>
+
+      <div class="col col-12 col-md-3" style="margin-top:5px;">
+        <div class="avatar-upload d-flex justify-content-center" style="width: 100% !important; max-width: 100% !important;">
+          <div class="avatar-preview-fourn">
+            <div id="imagePreview"
+                 [style.background-image]="backgroundImagePhoto_2"
+                 [style.background-size]="backgroundImageSize_2">
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 10px;">
+          <input #imageUpload_2
+                 id="imageUpload_2"
+                 name="image"
+                 type="file"
+                 accept=".png, .jpg, .jpeg"
+                 (change)="fileChangeImage_2($event)"
+                 style="display:none" />
+          <label for="imageUpload_2"></label>
+          <button tc-button (click)="imageUpload_2.click()" type="button" [afterIcon]="'sli-pencil'" [view]="'accent'" [square]="true" [outline]="true" [tcShape]="'50%'"></button>
+          <button tc-button (click)="removePhoto_2()" type="button" [afterIcon]="'sli-trash'" [view]="'error'" [square]="true" [tcShape]="'50%'" style="margin-left: 20px;"></button>
+        </div>
+      </div>
+
+      <div class="col col-12 col-md-3" style="margin-top:5px;">
+        <div class="avatar-upload d-flex justify-content-center" style="width: 100% !important; max-width: 100% !important;">
+          <div class="avatar-preview-fourn">
+            <div id="imagePreview"
+                 [style.background-image]="backgroundImagePhoto_3"
+                 [style.background-size]="backgroundImageSize_3">
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 10px;">
+          <input #imageUpload_3
+                 id="imageUpload_3"
+                 name="image"
+                 type="file"
+                 accept=".png, .jpg, .jpeg"
+                 (change)="fileChangeImage_3($event)"
+                 style="display:none" />
+          <label for="imageUpload_3"></label>
+          <button tc-button (click)="imageUpload_3.click()" type="button" [afterIcon]="'sli-pencil'" [view]="'accent'" [square]="true" [outline]="true" [tcShape]="'50%'"></button>
+          <button tc-button (click)="removePhoto_3()" type="button" [afterIcon]="'sli-trash'" [view]="'error'" [square]="true" [tcShape]="'50%'" style="margin-left: 20px;"></button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Button -->
+    <div class="row" style="padding-top: 30px;">
+      <div class="col col-12 col-md-12 div-btn-center">
+        <button tc-button type="submit" [view]="'accent'" [disabled]="!form.valid" style="float: right; margin-right: 10px;">
+          <i *ngIf="showLoading" class="fa fa-circle-o-notch fa-spin"></i>
+          <span *ngIf="!showLoading">Enregistrer</span>
+        </button>
+      </div>
+    </div>
+    
+  </form>
+</tc-card>

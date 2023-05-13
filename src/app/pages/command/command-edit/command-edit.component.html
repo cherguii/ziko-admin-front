@@ -1,0 +1,251 @@
+<tc-card>
+  <div class="row">
+      <div class="col col-12 col-md-6">
+        <div class="row">
+          <div class="col col-12 col-md-4">
+            Numéro de la commande :
+          </div>
+          <div class="col col-12 col-md-6">
+            <tc-badge class="tc-badge success custom-shape" style="border-radius: 0px; font-size: 17px;">
+              <b>{{ NumeroCommand }}</b>
+            </tc-badge>
+          </div>
+        </div>
+      </div>
+
+      <div class="col col-12 col-md-6">
+        <div class="row">
+          <div class="col col-12 col-md-2">
+            Status :
+          </div>
+          <div class="col col-12 col-md-6">
+            <tc-badge class="tc-badge info custom-shape" style="border-radius: 0px; font-size: 17px;">
+              <b>{{ TransactionStatus }}</b>
+            </tc-badge>
+          </div>
+        </div>
+      </div>
+      
+
+      <div class="col col-12 col-md-12">
+        <h5>Client :</h5>
+        <div class="row">
+          <div class="col col-12 col-md-2">
+            Nom prénom :
+          </div>
+          <div class="col col-12 col-md-6">
+            <b>{{ NomPrenomAcheteur }}</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="col col-12 col-md-12">
+        <div class="row">
+          <div class="col col-12 col-md-2">
+            Téléphone :
+          </div>
+          <div class="col col-12 col-md-6">
+            <b>{{ TelephoneAcheteur }}</b>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="col col-12 col-md-12">
+        <div class="row">
+          <div class="col col-12 col-md-2">
+            EmailAcheteur :
+          </div>
+          <div class="col col-12 col-md-6">
+            <b>{{ EmailAcheteur }}</b>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="col col-12 col-md-12">
+        <div class="row">
+          <div class="col col-12 col-md-2">
+            Wilaya :
+          </div>
+          <div class="col col-12 col-md-6">
+            <b>{{ WilayaAcheteur }}</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="col col-12 col-md-12">
+        <div class="row">
+          <div class="col col-12 col-md-2">
+            Commune et adresse :
+          </div>
+          <div class="col col-12 col-md-6">
+            <b>{{ CommuneAdresseAcheteur }}</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="col col-12 col-md-12 mt-4">
+        <div class="row">
+          <div class="col col-12 col-md-2">
+            Aarticle :
+          </div>
+          <div class="col col-12 col-md-6">
+            <a (click)="goToArticleOnline(ArticleId)" style="cursor: pointer;">
+              <img [src]="ArticlePhotoBase64" style="width: 80px;">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col col-12 col-md-12 mt-2">
+        <div class="row">
+          <div class="col col-12 col-md-2">
+            Prix de l'article :
+          </div>
+          <div class="col col-12 col-md-6">
+            <b>{{ ArticlePrixUnitaire }} DA</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="col col-12 col-md-12">
+        <div class="row">
+          <div class="col col-12 col-md-2">
+            Quantité :
+          </div>
+          <div class="col col-12 col-md-6">
+            <b>{{ Quantite }}</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="col col-12 col-md-12">
+        <div class="row">
+          <div class="col col-12 col-md-2">
+            Prix Total :
+          </div>
+          <div class="col col-12 col-md-6">
+            <b>{{ PrixTotal }}</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="col col-12 col-md-12">
+        <div class="row">
+          <div class="col col-12 col-md-2">
+            Date de la commande :
+          </div>
+          <div class="col col-12 col-md-6">
+            <b>{{ CreatedDateString }}</b>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+</tc-card>
+
+<tc-card>
+  <form [formGroup]="form" (ngSubmit)="onSubmitEditCommandForm()">
+    
+    <div class="row">
+
+      <div class="col col-12 col-md-4">
+        <mat-form-field>
+          <input matInput type="number" placeholder="Numéro référence transporteur" [formControl]="form.controls['NumeroReferenceTransporteur']">
+          <mat-error *ngIf="form.controls['NumeroReferenceTransporteur'].hasError('required') && form.controls['NumeroReferenceTransporteur'].touched">
+            Le Prix initiale unitaire est requis.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col col-12 col-md-4">
+        <mat-form-field>
+          <input matInput placeholder="Prix transporteur" [formControl]="form.controls['TransporteurPrix']">
+          <mat-error *ngIf="form.controls['TransporteurPrix'].hasError('required') && form.controls['TransporteurPrix'].touched">
+            Le Prix initiale unitaire est requis.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col col-12 col-md-4">
+        <mat-form-field>
+          <mat-label>Statut</mat-label>
+          <mat-select id="TransactionStatusCode"
+                      name="TransactionStatusCode"
+                      [formControl]="form.controls['TransactionStatusCode']">
+            <mat-option *ngFor="let status of CommandStatus" [value]="status.Code">
+              {{ status.Libelle}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      
+      <div class="col col-12 col-md-4">
+
+        <mat-form-field>
+          <input matInput
+                 id="PriseEnChargeParTransporteurDate"
+                 name="PriseEnChargeParTransporteurDate"
+                 [matDatepicker]="picker"
+                 [formControl]="form.controls['PriseEnChargeParTransporteurDate']"
+                 placeholder="Date prise en charge par transporteur"
+                 (click)="picker.open()"
+                 style="cursor: pointer;">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        
+      </div>
+
+      <div class="col col-12 col-md-4">
+
+        <mat-form-field>
+          <input matInput
+                 id="ReceptionClientDate"
+                 name="ReceptionClientDate"
+                 [matDatepicker]="picker2"
+                 [formControl]="form.controls['ReceptionClientDate']"
+                 placeholder="Date récéption client"
+                 (click)="picker2.open()"
+                 style="cursor: pointer;">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+      </div>
+      
+      <div class="col col-12 col-md-4">
+        <mat-form-field>
+          <input matInput
+                 id="RetourClientDate"
+                 name="RetourClientDate"
+                 [matDatepicker]="picker3"
+                 [formControl]="form.controls['RetourClientDate']"
+                 placeholder="Date retour client"
+                 (click)="picker3.open()"
+                 style="cursor: pointer;">
+          <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+          <mat-datepicker #picker3></mat-datepicker>
+        </mat-form-field>
+        <!-- <mat-form-field>
+          <input matInput placeholder="RetourClientDate" [formControl]="form.controls['RetourClientDate']">
+          <mat-error *ngIf="form.controls['RetourClientDate'].hasError('required') && form.controls['RetourClientDate'].touched">
+            Le Prix initiale unitaire est requis.
+          </mat-error>
+        </mat-form-field> -->
+      </div>
+      
+    </div>
+    
+
+    <!-- Button -->
+    <div class="row">
+      <div class="col col-12 col-md-12">
+        <!-- <button tc-button type="button" [view]="'primary'" [disabled]="!form.valid" (click)="goToArticleOnline(ArticleId)" style="float: right;">Voir le produit</button> -->
+        <button tc-button type="submit" [view]="'accent'" [disabled]="!form.valid" style="float: right; margin-right: 10px;">
+          <i *ngIf="showLoading" class="fa fa-circle-o-notch fa-spin"></i>
+          <span *ngIf="!showLoading">Enregistrer</span>
+        </button>
+      </div>
+    </div>
+    
+  </form>
+</tc-card>

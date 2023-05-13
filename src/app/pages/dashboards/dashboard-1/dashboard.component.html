@@ -1,0 +1,171 @@
+<tc-card>
+  <div class="row">
+    <div class="col-lg-12 col-xl-6 order-xl-2 mb-lg-4">
+      <div class="chart-container">
+        <div id="amchart-1" [style.width.%]="100" [style.height.%]="100"></div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3 order-xl-1 mb-4 mb-md-0">
+      <h5 class="mt-0">Last sales</h5>
+      <div class="table-responsive mb-3">
+        <table class="table table-sm">
+          <tbody>
+          <tr>
+            <td>Samsung Galaxy S8</td>
+            <td class="text-end">
+              <tc-badge [view]="'success'" [tcShape]="0">1</tc-badge>
+            </td>
+          </tr>
+          <tr>
+            <td>Meizu M3</td>
+            <td class="text-end">
+              <tc-badge [view]="'success'" [tcShape]="0">1</tc-badge>
+            </td>
+          </tr>
+          <tr>
+            <td>Meizu Pro 6</td>
+            <td class="text-end">
+              <tc-badge [view]="'info'" [tcShape]="0">5</tc-badge>
+            </td>
+          </tr>
+          <tr>
+            <td>Apple iPhone SE</td>
+            <td class="text-end">
+              <tc-badge [view]="'warning'" [tcShape]="0">7</tc-badge>
+            </td>
+          </tr>
+          <tr>
+            <td>iPhone 6</td>
+            <td class="text-end">
+              <tc-badge [view]="'success'" [tcShape]="0">1</tc-badge>
+            </td>
+          </tr>
+          <tr>
+            <td>iPhone 7</td>
+            <td class="text-end">
+              <tc-badge [view]="'success'" [tcShape]="0">1</tc-badge>
+            </td>
+          </tr>
+          <tr>
+            <td>Huawei P8</td>
+            <td class="text-end">
+              <tc-badge [view]="'info'" [tcShape]="0">4</tc-badge>
+            </td>
+          </tr>
+          <tr>
+            <td>Xiaomi Mi Band 2</td>
+            <td class="text-end">
+              <tc-badge [view]="'error'" [tcShape]="0">10</tc-badge>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <button tc-button block="true" type="accent" outline="true" lineStyle="dashed" beforeIcon="fa fa-shopping-basket">Look all</button>
+    </div>
+
+    <div class="col-md-6 col-xl-3 order-xl-3">
+      <p class="mb-1"><strong>Angular</strong></p>
+      <mat-progress-bar mode="determinate" color="accent" [value]="98" class="mb-4"></mat-progress-bar>
+
+      <p class="mb-1"><strong>React</strong></p>
+      <mat-progress-bar mode="determinate" color="warn" [value]="85" class="mb-4"></mat-progress-bar>
+
+      <p class="mb-1"><strong>Vue.js</strong></p>
+      <mat-progress-bar mode="determinate" [value]="40" class="mb-4"></mat-progress-bar>
+
+      <p class="mb-1"><strong>Backbone.js</strong></p>
+      <mat-progress-bar mode="determinate" [value]="38" class="mb-4"></mat-progress-bar>
+
+      <p class="mb-1"><strong>Ember.js</strong></p>
+      <mat-progress-bar mode="determinate" color="accent" [value]="54" class="mb-4"></mat-progress-bar>
+
+      <p class="mb-1"><strong>Meteor.js</strong></p>
+      <mat-progress-bar mode="determinate" color="warn" [value]="38" class="mb-4"></mat-progress-bar>
+
+      <p class="mb-1"><strong>jQuery</strong></p>
+      <mat-progress-bar mode="determinate" color="warn" [value]="61"></mat-progress-bar>
+    </div>
+  </div>
+</tc-card>
+
+<div class="row">
+  <div class="col-md-6 col-xl-3">
+    <tc-card [view]="'info'" [outline]="true" [tcColor]="'#000'" class="info-card">
+      <h6 class="mt-0 title">Orders</h6>
+      <div class="count">2,145</div>
+      <div class="d-flex align-items-end">
+        <tc-badge [view]="'info'" [tcShape]="0">+17%</tc-badge>
+        <small class="ms-1 me-1 text-nowrap text-truncate">from previous period</small>
+      </div>
+      <mat-icon>shopping_basket</mat-icon>
+    </tc-card>
+  </div>
+
+  <div class="col-md-6 col-xl-3">
+    <tc-card [view]="'info'" [outline]="true" [tcColor]="'#000'" class="info-card">
+      <h6 class="mt-0 title">Revenue</h6>
+      <div class="count">$ 50,24</div>
+      <small>11750</small>
+      <mat-icon>equalizer</mat-icon>
+    </tc-card>
+  </div>
+
+  <div class="col-md-6 col-xl-3">
+    <tc-card [view]="'info'" [outline]="true" [tcColor]="'#000'" class="info-card">
+      <h6 class="mt-0 title">Products</h6>
+      <div class="count">2,543</div>
+      <tc-badge [view]="'info'" [tcShape]="0">+210</tc-badge>
+      <mat-icon>monetization_on</mat-icon>
+    </tc-card>
+  </div>
+
+  <div class="col-md-6 col-xl-3">
+    <tc-card [view]="'info'" [outline]="true" [tcColor]="'#000'" class="info-card">
+      <h6 class="mt-0 title">Sold</h6>
+      <div class="count">1,005</div>
+      <tc-badge [view]="'info'" [tcShape]="0">+24%</tc-badge>
+      <mat-icon>donut_large</mat-icon>
+    </tc-card>
+  </div>
+</div>
+
+<tc-card>
+  <div class="row">
+    <div class="col-lg-4">
+      <div id="amchart-2" [style.width.%]="100" [style.height.px]="400"></div>
+    </div>
+
+    <div class="col-lg-4">
+      <div id="amchart-3" [style.width.%]="100" [style.height.px]="400"></div>
+    </div>
+
+    <div class="col-lg-4">
+      <div id="amchart-4" [style.width.%]="100" [style.height.px]="400"></div>
+    </div>
+  </div>
+</tc-card>
+
+<div class="row">
+  <div class="col-lg-6">
+    <tc-card [title]="'Changelog'" [outline]="true" class="mb-lg-0">
+      <tc-v-timeline [showYears]="false" [showDate]="false" [align]="'left'" [data]="timelineData"></tc-v-timeline>
+    </tc-card>
+  </div>
+
+  <div class="col-lg-6">
+    <tc-card [title]="'To do list'" class="mb-0">
+      <mat-list>
+        <mat-list-item *ngFor="let folder of folders">
+          <mat-icon mat-list-icon>
+            {{ folder.icon }}
+            <tc-badge *ngIf="folder.badge" [view]="'error'" [position]="'top-right'">{{ folder.badge }}</tc-badge>
+          </mat-icon>
+          <div mat-line><h4 class="h5 m-0">{{ folder.name }}</h4></div>
+          <p mat-line [tcFontSize]="12" class="mb-0"><i>{{ folder.updated }}</i></p>
+        </mat-list-item>
+      </mat-list>
+    </tc-card>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+@import '../../../../assets/scss/variables';
+
+:host {
+  .map {
+    display: block;
+    min-height: 500px;
+    width: 100%;
+    @include max767 {
+      min-height: 300px;
+    }
+  }
+}

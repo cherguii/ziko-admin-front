@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Suppression d'une commande</h1>
+<div mat-dialog-content>
+  <p class="mb-0">Es-tu sûr de vouloir supprmier la commande ?</p>
+
+  <br>
+  <p>
+    Titre : <b>{{ titre }}</b>
+  </p>
+</div>
+
+<div mat-dialog-actions class="pb-3 justify-content-between" style="margin-top: 20px;">
+  <button mat-raised-button color="warn" (click)="onNoClick()">Annuler</button>
+  <button mat-raised-button color="accent" [mat-dialog-close]="1" cdkFocusInitial>Supprimer</button>
+</div>

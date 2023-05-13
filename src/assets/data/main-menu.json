@@ -1,0 +1,33 @@
+[
+	{
+    "title": "Main",
+    "groupTitle" : true
+	},
+  {
+    "title": "Liste Articles",
+    "icon": {
+      "class": "fa fa-clone",
+      "bg": "#FFCCBC",
+      "color": "rgba(0,0,0,.87)"
+    },
+    "routing": "article-list"
+  },
+  {
+    "title": "Créer Article",
+    "icon": {
+      "class": "fa fa-check-square-o",
+      "bg": "rgb(179, 229, 252)",
+      "color": "rgba(0, 0, 0, 0.87)"
+    },
+    "routing": "article-create"
+  },
+  {
+    "title": "Liste Commandes",
+    "icon": {
+      "class": "fa fa-th icon-wrap",
+      "bg": "rgb(255, 203, 44)",
+      "color": "rgba(0, 0, 0, 0.87)"
+    },
+    "routing": "command-list"
+  }
+]
